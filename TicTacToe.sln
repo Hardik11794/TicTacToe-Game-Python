@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TicTacToe", "TicTacToe.pyproj", "{5C0AD44F-E4B8-4C53-B05D-055BC2FD9C3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C0AD44F-E4B8-4C53-B05D-055BC2FD9C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0AD44F-E4B8-4C53-B05D-055BC2FD9C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A906BD30-1BAA-4146-A748-F95401328D11}
+	EndGlobalSection
+EndGlobal
