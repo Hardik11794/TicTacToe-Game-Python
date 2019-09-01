@@ -1,4 +1,6 @@
 
+import random
+
 print("This is TicTacToe")
 print(' ')
 
@@ -14,8 +16,8 @@ def display_board(board):
     print(board[1],'|',board[2],'|',board[3])
 
 
-display_board(print_board)
-print( ' ')
+#display_board(print_board)
+#print( ' ')
 
 #*********************************************************
 #           This function choose player and marker
@@ -58,6 +60,42 @@ def win_check(board,marker):
         return True
     else:
         return False
+
+#*********************************************************
+#           This function decides who will go first
+#*********************************************************
+       
+def choose_first():
+        
+    random_player = random.randint(0,1)
+
+    return random_player
+   
+#*********************************************************
+#           This function checks free space on the board
+#*********************************************************
+  
+def full_board_check(board):
+    
+    for space in board:
+        if space == ' ':
+            return False
+        else:
+            return True
+        break
+       
+
+
+
+y = full_board_check(print_board)
+print(y)
+
+
+
+
+x = choose_first()
+print(x)
+
 
 
 place_marker(print_board,'X',1)
