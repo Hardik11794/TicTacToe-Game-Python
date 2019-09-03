@@ -105,4 +105,6 @@ win_check(print_board,'X')
 print(" ")
 place_marker(print_board,'X',6)
 win_check(print_board,'X')
-full_board_check(print_board,5)
+
+y=full_board_check(print_board,5)
+print(y)
