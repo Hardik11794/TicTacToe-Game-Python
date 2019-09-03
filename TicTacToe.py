@@ -71,28 +71,30 @@ def choose_first():
 
     return random_player
    
-#*********************************************************
-#           This function checks free space on the board
-#*********************************************************
+#*******************************************************************
+#           This function checks particular position is free or not
+#*******************************************************************
   
-def full_board_check(board,position):
+def space_check(board,position):
     
-    for space in board[position]:
-        if space == ' ':
+
+        if board[position] == ' ':
             return False
         else:
             return True
-        break
+
+
+       
        
 
 
 
 def player_choice(board):
 
-    position = input("Enter your next position(1-9) : ") + 1
-    full_board_check(board,position)
+    position = int(input("Enter your next position(1-9) : ")) 
+    space_check(board,position)
     
-    pass
+    #pass
 
 
 
@@ -104,7 +106,7 @@ def player_choice(board):
 x = choose_first()
 print(x)
 
-
+player_choice(print_board)
 
 place_marker(print_board,'X',1)
 win_check(print_board,'X')
