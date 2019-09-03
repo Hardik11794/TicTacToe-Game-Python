@@ -87,6 +87,15 @@ def full_board_check(board,position):
 
 
 
+def player_choice(board):
+
+    position = input("Enter your next position(1-9) : ") + 1
+    full_board_check(board,position)
+    
+    pass
+
+
+
 
 
 
