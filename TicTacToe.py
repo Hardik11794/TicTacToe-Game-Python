@@ -75,9 +75,9 @@ def choose_first():
 #           This function checks free space on the board
 #*********************************************************
   
-def full_board_check(board):
+def full_board_check(board,position):
     
-    for space in board:
+    for space in board[position]:
         if space == ' ':
             return False
         else:
@@ -87,8 +87,7 @@ def full_board_check(board):
 
 
 
-y = full_board_check(print_board)
-print(y)
+
 
 
 
@@ -100,7 +99,10 @@ print(x)
 
 place_marker(print_board,'X',1)
 win_check(print_board,'X')
+print(" ")
 place_marker(print_board,'X',5)
 win_check(print_board,'X')
-place_marker(print_board,'X',9)
+print(" ")
+place_marker(print_board,'X',6)
 win_check(print_board,'X')
+full_board_check(print_board,5)
