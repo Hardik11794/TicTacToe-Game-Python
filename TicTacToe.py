@@ -87,9 +87,9 @@ def space_check(board,position):
 #           This function checks free space on the board
 #*********************************************************
   
-def full_board_check(board,position):
+def full_board_check(board):
     
-    for space in board[position]:
+    for space in board:
         if space == ' ':
             return False
         else:
