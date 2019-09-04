@@ -110,6 +110,20 @@ def player_choice(board):
     
     #pass
 
+#********************************************************************************
+#           This function ask player for position and checks if it is available
+#********************************************************************************
+
+    def replay():
+
+        ask_replay = input("Do you want to play again ? ")
+        if ask_replay == "Yes":
+            return True
+        else:
+            return False
+    
+   # pass
+
 
 
 
