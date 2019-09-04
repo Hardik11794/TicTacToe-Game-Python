@@ -97,14 +97,16 @@ def full_board_check(board):
         break
 
        
-       
-
+#********************************************************************************
+#           This function ask player for position and checks if it is available
+#********************************************************************************
 
 
 def player_choice(board):
 
     position = int(input("Enter your next position(1-9) : ")) 
-    space_check(board,position)
+    if space_check(board,position) == True:
+        return position
     
     #pass
 
@@ -118,7 +120,8 @@ def player_choice(board):
 x = choose_first()
 print(x)
 
-player_choice(print_board)
+z = player_choice(print_board)
+print(z)
 
 place_marker(print_board,'X',1)
 win_check(print_board,'X')
@@ -129,5 +132,8 @@ print(" ")
 place_marker(print_board,'X',6)
 win_check(print_board,'X')
 
-y=full_board_check(print_board,5)
+z = player_choice(print_board)
+print(z)
+
+y=full_board_check(print_board)
 print(y)
