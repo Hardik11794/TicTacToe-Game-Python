@@ -36,9 +36,12 @@ def player_input():
           player2 = 'O'
     else:
         player2 = 'X'
-    return(player1,player2)
+    print(f"Player 1 is {player1}.")
+    print(f"Player 2 is {player2}.")
+    return player1,player2
+    
 
-player_input()
+#player_input()
 #*********************************************************
 #           This function place a marker on board
 #*********************************************************
@@ -65,11 +68,17 @@ def win_check(board,marker):
 #           This function decides who will go first
 #*********************************************************
        
-def choose_first():
-        
+def choose_first(player1,player2):
     random_player = random.randint(0,1)
-
-    return random_player
+    if random_player == 0:
+        print(f"Player 1 will go first with marker {player1}")
+        player1Turn = True
+        player2Turn = False
+    elif random_player == 1:
+        print(f"Player 2 will go first with marker {player2}")
+        player1Turn = False
+        player2Turn = True
+    return random_player,player1Turn,player2Turn
    
 #*******************************************************************
 #           This function checks particular position is free or not
@@ -104,14 +113,17 @@ def full_board_check(board):
 
 def player_choice(board):
 
-    position = int(input("Enter your next position(1-9) : ")) 
-    if space_check(board,position) == True:
-        return position
+    while True:
+        position = int(input("Enter your next position(1-9) : ")) 
+        if space_check(board,position) == True:
+            return int(position)
+        else:
+            break
     
     #pass
 
 #********************************************************************************
-#           This function ask player for position and checks if it is available
+#           This function ask player for replay
 #********************************************************************************
 
     def replay():
@@ -124,6 +136,17 @@ def player_choice(board):
     
    # pass
 
+while True:
+    player1,player2 = player_input()
+    random_player,player1Turn,player2Turn = choose_first(player1,player2)
+   
+    if player1Turn == True and player2Turn == False:
+        position = player_choice(print_board)
+        place_marker(print_board,player1,position)
+       
+
+        win_check(print_board,player1)
+        full_board_check(print_board)
 
 
 
@@ -131,23 +154,25 @@ def player_choice(board):
 
 
 
-x = choose_first()
-print(x)
 
-z = player_choice(print_board)
-print(z)
 
-place_marker(print_board,'X',1)
-win_check(print_board,'X')
-print(" ")
-place_marker(print_board,'X',5)
-win_check(print_board,'X')
-print(" ")
-place_marker(print_board,'X',6)
-win_check(print_board,'X')
+#x = choose_first()
+#print(x)
 
-z = player_choice(print_board)
-print(z)
+#z = player_choice(print_board)
+#print(z)
 
-y=full_board_check(print_board)
-print(y)
+#place_marker(print_board,'X',1)
+#win_check(print_board,'X')
+#print(" ")
+#place_marker(print_board,'X',5)
+#win_check(print_board,'X')
+#print(" ")
+#place_marker(print_board,'X',6)
+#win_check(print_board,'X')
+
+#z = player_choice(print_board)
+#print(z)
+
+#y=full_board_check(print_board)
+#print(y)
