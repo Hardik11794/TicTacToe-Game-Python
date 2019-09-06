@@ -46,8 +46,9 @@ def player_input():
 #           This function place a marker on board
 #*********************************************************
 def place_marker(board,marker,position):
+  
 
-    board = board.insert(position,marker)
+    board.insert(position,marker)
     display_board(board)
 
     return(board)
@@ -88,9 +89,9 @@ def space_check(board,position):
     
 
         if board[position] == ' ':
-            return False
-        else:
             return True
+        else:
+            return False
 
 #*********************************************************
 #           This function checks free space on the board
@@ -117,8 +118,10 @@ def player_choice(board):
         position = int(input("Enter your next position(1-9) : ")) 
         if space_check(board,position) == True:
             return int(position)
-        else:
             break
+        else:
+            print('This position has been filled up, Choose another one.')
+            continue
     
     #pass
 
