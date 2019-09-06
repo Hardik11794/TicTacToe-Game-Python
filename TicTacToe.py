@@ -6,7 +6,7 @@ print(' ')
 
 #print_board = ['#','O','X','0','X','O','X','O','X','O']
 print_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-
+#print(type(print_board))
 #*********************************************************
 #           This function print a board
 #*********************************************************
@@ -47,7 +47,7 @@ def player_input():
 #*********************************************************
 def place_marker(board,marker,position):
 
-    board.insert(position,marker)
+    board = board.insert(position,marker)
     display_board(board)
 
     return(board)
@@ -139,15 +139,16 @@ def player_choice(board):
 while True:
     player1,player2 = player_input()
     random_player,player1Turn,player2Turn = choose_first(player1,player2)
+    
    
     if player1Turn == True and player2Turn == False:
         position = player_choice(print_board)
         place_marker(print_board,player1,position)
        
 
+
         win_check(print_board,player1)
         full_board_check(print_board)
-
 
 
 
