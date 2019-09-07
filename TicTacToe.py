@@ -143,23 +143,41 @@ while True:
     player1,player2 = player_input()                                         #This function choose player and marker.
     random_player,player1Turn,player2Turn = choose_first(player1,player2)    #This function decides who will go first.
     
-   
+      
     if player1Turn == True and player2Turn == False: 
-        position = player_choice(print_board)                                #This function ask player for position and checks if it is available
-        place_marker(print_board,player1,position)                           #This function place a marker on board
-        win_check(print_board,player1)
-        full_board_check(print_board)
-        player2Turn = True 
-        player1Turn = False
+            position = player_choice(print_board)                                #This function ask player for position and checks if it is available
+            place_marker(print_board,player1,position)                           #This function place a marker on board
+            if win_check(print_board,player1) == True:
+                print('Congtulations, Player 1 won !!')
+                break
+            else:
+                continue
 
-    if player2Turn == True and player2Turn == False: 
-        position = player_choice(print_board)                                #This function ask player for position and checks if it is available
-        place_marker(print_board,player2,position)                           #This function place a marker on board
-        win_check(print_board,player2)
-        full_board_check(print_board)
-        player1Turn = True 
-        player2Turn = False
+            if full_board_check(print_board) == False:
+                continue
+            else:
+                print("Game is tie")
+                break
 
+            player2Turn = True 
+            player1Turn = False
+
+    elif player2Turn == True and player2Turn == False: 
+            position = player_choice(print_board)                                #This function ask player for position and checks if it is available
+            place_marker(print_board,player2,position)                           #This function place a marker on board
+            if win_check(print_board,player1) == True:
+                print('Congtulations, Player 1 won !!')
+                break
+            else:
+                continue
+
+            if full_board_check(print_board) == False:
+                continue
+            else:
+                print("Game is tie")
+                break
+            player1Turn = True 
+            player2Turn = False
 
 
 
