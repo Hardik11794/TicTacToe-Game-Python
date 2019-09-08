@@ -131,10 +131,10 @@ def player_choice(board):
 #           This function ask player for replay
 #********************************************************************************
 
-    def replay():
+def replay():
 
-        ask_replay = input("Do you want to play again ? ")
-        if ask_replay == "Yes":
+        ask_replay = input("Do you want to play again ? ").upper()
+        if ask_replay == "YES":
             return True
         else:
             return False
@@ -142,16 +142,17 @@ def player_choice(board):
 
 
 
-#while True:
-print_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+while True:
 
-player1,player2 = player_input()                                         #This function choose player and marker.
-print(" ")
-player1Turn,player2Turn = choose_first(player1,player2)    #This function decides who will go first.
+    print_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+
+    player1,player2 = player_input()                                         #This function choose player and marker.
+    print(" ")
+    player1Turn,player2Turn = choose_first(player1,player2)    #This function decides who will go first.
     
-while True:  
+    while True:  
         
-    if player1Turn == True and player2Turn == False: 
+        if player1Turn == True and player2Turn == False: 
             print(" ")
             print('Player 1,Your turn !!')
             print(" ")
@@ -174,7 +175,7 @@ while True:
 
            
 
-    else: 
+        else: 
          player1Turn == False and player2Turn == True
          print(" ")
          print('Player 2,Your turn !!')
@@ -195,6 +196,9 @@ while True:
               print("Game is Draw !!")
               break
           
+
+    if replay() == False:
+            break
                
          
 
