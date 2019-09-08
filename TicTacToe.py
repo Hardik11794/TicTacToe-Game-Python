@@ -4,9 +4,7 @@ import random
 print("This is TicTacToe")
 print(' ')
 
-#print_board = ['#','O','X','0','X','O','X','O','X','O']
-print_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-#print(type(print_board))
+
 #*********************************************************
 #           This function print a board
 #*********************************************************
@@ -16,8 +14,7 @@ def display_board(board):
     print(board[1],'|',board[2],'|',board[3])
 
 
-#display_board(print_board)
-#print( ' ')
+
 
 #*********************************************************
 #           This function choose player and marker
@@ -36,20 +33,21 @@ def player_input():
           player2 = 'O'
     else:
         player2 = 'X'
+    print(" ")
     print(f"Player 1 is {player1}.")
     print(f"Player 2 is {player2}.")
     return player1,player2
     
 
-#player_input()
+
 #*********************************************************
 #           This function place a marker on board
 #*********************************************************
 def place_marker(board,marker,position):
   
 
-    board.insert(position,marker)
-    display_board(board)
+    board[position] = marker
+    
 
     return(board)
 
@@ -60,7 +58,8 @@ def place_marker(board,marker,position):
 def win_check(board,marker):
 
     if board[1]==board[5]==board[9]== marker or board[3]==board[5]==board[7]== marker or board[1]==board[2]==board[3]== marker or board[4]==board[5]==board[6]== marker or board[7]==board[8]==board[9]== marker or board[7]==board[4]==board[1]== marker or board[8]==board[5]==board[2]== marker or board[9]==board[6]==board[3]== marker:
-        print(f'{marker} You Win,Congratulations !!!')
+        display_board(print_board)
+       
         return True
     else:
         return False
@@ -75,11 +74,14 @@ def choose_first(player1,player2):
         print(f"Player 1 will go first with marker {player1}")
         player1Turn = True
         player2Turn = False
+        
     elif random_player == 1:
         print(f"Player 2 will go first with marker {player2}")
         player1Turn = False
         player2Turn = True
-    return random_player,player1Turn,player2Turn
+        
+    return player1Turn,player2Turn
+
    
 #*******************************************************************
 #           This function checks particular position is free or not
@@ -123,7 +125,7 @@ def player_choice(board):
             print('This position has been filled up, Choose another one.')
             continue
     
-    #pass
+ 
 
 #********************************************************************************
 #           This function ask player for replay
@@ -137,70 +139,67 @@ def player_choice(board):
         else:
             return False
     
-   # pass
 
-while True:
-    player1,player2 = player_input()                                         #This function choose player and marker.
-    random_player,player1Turn,player2Turn = choose_first(player1,player2)    #This function decides who will go first.
+
+
+#while True:
+print_board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+
+player1,player2 = player_input()                                         #This function choose player and marker.
+print(" ")
+player1Turn,player2Turn = choose_first(player1,player2)    #This function decides who will go first.
     
-      
+while True:  
+        
     if player1Turn == True and player2Turn == False: 
+            print(" ")
+            print('Player 1,Your turn !!')
+            print(" ")
+            display_board(print_board)
             position = player_choice(print_board)                                #This function ask player for position and checks if it is available
             place_marker(print_board,player1,position)                           #This function place a marker on board
+            
             if win_check(print_board,player1) == True:
+                
                 print('Congtulations, Player 1 won !!')
                 break
+            elif full_board_check(print_board) == False:
+                player1Turn = False
+                player2Turn = True
+                
             else:
-                continue
-
-            if full_board_check(print_board) == False:
-                continue
-            else:
-                print("Game is tie")
+                print("Game is Draw !!")
                 break
+                
 
-            player2Turn = True 
-            player1Turn = False
+           
 
-    elif player2Turn == True and player2Turn == False: 
-            position = player_choice(print_board)                                #This function ask player for position and checks if it is available
-            place_marker(print_board,player2,position)                           #This function place a marker on board
-            if win_check(print_board,player1) == True:
-                print('Congtulations, Player 1 won !!')
+    else: 
+         player1Turn == False and player2Turn == True
+         print(" ")
+         print('Player 2,Your turn !!')
+         print(" ")
+         display_board(print_board)
+         position = player_choice(print_board)                                #This function ask player for position and checks if it is available
+         place_marker(print_board,player2,position)                           #This function place a marker on board
+         
+         if win_check(print_board,player2) == True:
+                
+                print('Congtulations, Player 2 won !!')
                 break
-            else:
-                continue
-
-            if full_board_check(print_board) == False:
-                continue
-            else:
-                print("Game is tie")
-                break
-            player1Turn = True 
-            player2Turn = False
-
-
+         elif full_board_check(print_board) == False:
+              player1Turn = True 
+              player2Turn = False
+              
+         else:
+              print("Game is Draw !!")
+              break
+          
+               
+         
 
 
 
 
-#x = choose_first()
-#print(x)
 
-#z = player_choice(print_board)
-#print(z)
 
-#place_marker(print_board,'X',1)
-#win_check(print_board,'X')
-#print(" ")
-#place_marker(print_board,'X',5)
-#win_check(print_board,'X')
-#print(" ")
-#place_marker(print_board,'X',6)
-#win_check(print_board,'X')
-
-#z = player_choice(print_board)
-#print(z)
-
-#y=full_board_check(print_board)
-#print(y)
