@@ -1,3 +1,12 @@
+from Modules import Display_Board
+from Modules import Choose_Player_Marker
+from Modules import Place_Marker
+from Modules import Win_Check
+from Modules import Choose_First
+from Modules import Check_Free_Space
+from Modules import Full_Board_Check
+from Modules import Player_Choice
+from Modules import Replay
 #*********************************************************
 #           This function checks free space on the board
 #*********************************************************
@@ -10,3 +19,9 @@ def full_board_check(board):
         return False
    
 
+if __name__ == '__main__':
+    TestBoard = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    TestBoard1 = ['#',' ',' ',5,' ',' ',' ',' ',' ',' ']
+    print("Full_Board_Check.py is being run directly")
+    full_board_check(TestBoard)
+    full_board_check(TestBoard1)
