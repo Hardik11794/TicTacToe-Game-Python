@@ -19,9 +19,3 @@ def full_board_check(board):
         return False
    
 
-if __name__ == '__main__':
-    TestBoard = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-    TestBoard1 = ['#',' ',' ',5,' ',' ',' ',' ',' ',' ']
-    print("Full_Board_Check.py is being run directly")
-    full_board_check(TestBoard)
-    full_board_check(TestBoard1)
