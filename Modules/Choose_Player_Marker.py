@@ -14,7 +14,7 @@ from Modules import Replay
 
 def player_input():
     
-    marker = ' '
+    marker = ''
 
     while marker != 'X' and marker != 'O':
         marker = input("Player 1 Choose your marker 'X' or 'O' : ").upper()
@@ -28,4 +28,4 @@ def player_input():
     print(" ")
     print(f"Player 1 is {player1}.")
     print(f"Player 2 is {player2}.")
-    return player1,player2
+    return player1, player2

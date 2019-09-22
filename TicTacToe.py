@@ -13,61 +13,41 @@ from Modules import Replay
 print("This is TicTacToe  !!!")
 print(' ')
 
+
+def runPlayer(print_board, player):
+    position = Player_Choice.player_choice(print_board)                               #This function ask player for position and checks if it is available
+    Place_Marker.place_marker(print_board, player, position)                           #This function place a marker on board
+
+    if Win_Check.win_check(print_board, player) == True:                              #This function checks for win
+        Display_Board.display_board(print_board)
+        print('Congtulations, ' + player + ' won !!')
+        return False
+
+    if Full_Board_Check.full_board_check(print_board) == True:
+        Display_Board.display_board(print_board)
+        print("Game is Draw !!")
+        return False
+
 while True:
-    print_board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-    player1,player2 = Choose_Player_Marker.player_input()                                     #This function choose player and marker.
+
+    print_board = ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    player1, player2 = Choose_Player_Marker.player_input()                                     #This function choose player and marker.
     print(" ")
-    player1Turn,player2Turn = Choose_First.choose_first(player1,player2)                      #This function decides who will go first.
+    playerFlip = True
     
     while True:  
-        if player1Turn == True and player2Turn == False: 
-            
-            
-            Display_Board.display_board(print_board)                                          #This function display the board
-            print(" ")
-            print('Player 1,Your turn !!')
-            print(" ")
-            position = Player_Choice.player_choice(print_board)                               #This function ask player for position and checks if it is available
-            Place_Marker.place_marker(print_board,player1,position)                           #This function place a marker on board
-            if Win_Check.win_check(print_board,player1) == True:                              #This function checks for win
-                Display_Board.display_board(print_board)
-                print('Congtulations, Player 1 won !!')
-                break
-            if Full_Board_Check.full_board_check(print_board) == False:                       #This function checks if board is full or not
-                player1Turn = False
-                player2Turn = True
-           
-            if Full_Board_Check.full_board_check(print_board) == True:
-              Display_Board.display_board(print_board)
-              print("Game is Draw !!")
-              break
-      
-        else: 
-         player1Turn == False and player2Turn == True
-        
-         Display_Board.display_board(print_board)                                             #This function display the board
-         print(" ")
-         print('Player 2,Your turn !!')
-         print(" ")
-         position = Player_Choice.player_choice(print_board)                                 #This function ask player for position and checks if it is available
-         Place_Marker.place_marker(print_board,player2,position)                             #This function place a marker on board
-        
-         
-         if Win_Check.win_check(print_board,player2) == True:                                #This function checks for win
-              Display_Board.display_board(print_board)
-              print('Congtulations, Player 2 won !!')
-              break
-         
-         if Full_Board_Check.full_board_check(print_board) == False:                         #This function checks if board is full or not
-              player1Turn = True 
-              player2Turn = False
 
-         if Full_Board_Check.full_board_check(print_board) == True:
-              Display_Board.display_board(print_board)
-              print("Game is Draw !!")
-              break
+        Display_Board.display_board(print_board)                                          #This function display the board
+        if playerFlip == True: 
+            print( "\n PLayer 1 Your turn !! \n")
+            if(runPlayer(print_board, player1) == False):
+                break
+        else:
+            print( "\n PLayer 2 Your turn !! \n")
+            if(runPlayer(print_board, player2) == False):
+                break
+        playerFlip = not(playerFlip)
         
-          
     if Replay.replay() == False:                                                             #This function ask player for display
         break
                
